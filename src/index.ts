@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { AppDataSource } from './config/database.config';
-import app from './app';
-import log from './utils/loggers';
+import log from './utils/logger';
 import env from './config/environment.config';
+import app from './app';
 
 AppDataSource.initialize()
     .then(() => {

@@ -1,23 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "CommonJS",
+    "target": "es2017",
+    "module": "commonjs",
     "lib": [
-      "ES2017"
+      "es2017"
     ],
-    "outDir": "./dist",
+    "outDir": "./build",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,
     "skipLibCheck": true,
-    "emitDecoratorMetadata": true
+    "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
     "node_modules",
+    "build"
   ]
 }

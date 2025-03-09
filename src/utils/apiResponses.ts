@@ -1,5 +1,5 @@
 import { IRequest, IResponse } from '../types/common';
-import log from './loggers';
+import log from './logger';
 import { getMessageFromErrorObj } from './utils';
 
 interface ISuccessResponse {

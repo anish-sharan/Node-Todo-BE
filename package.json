@@ -1,32 +1,52 @@
 {
-  "name": "todobe",
-  "version": "1.0.0",
-  "description": "To Do BE",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts"
-  },
-  "author": "Anish Sharan",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "pg": "^8.13.1",
-    "pino": "^9.6.0",
-    "pino-pretty": "^13.0.0",
-    "typeorm": "^0.3.20",
-    "uuid": "^11.0.5",
-    "yup": "^1.6.1"
-  },
-  "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.13.1",
-    "@types/pg": "^8.11.11",
-    "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
-  }
+	"name": "be_project_structure_v2",
+	"version": "1.0.1",
+	"main": "index.js",
+	"scripts": {
+		"typeorm": "ts-node -r dotenv/config ./node_modules/typeorm/cli.js",
+		"start-dev": "node build/index.js",
+		"start": "ts-node src/index.ts",
+		"dev": "nodemon src/index.ts",
+		"build": "tsc",
+		"lint": "eslint"
+	},
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"@types/ejs": "^3.1.5",
+		"bcryptjs": "^3.0.2",
+		"cors": "^2.8.5",
+		"dotenv": "^16.4.7",
+		"ejs": "^3.1.10",
+		"express": "^4.21.2",
+		"pg": "^8.13.1",
+		"pino": "^9.5.0",
+		"pino-pretty": "^13.0.0",
+		"reflect-metadata": "^0.2.2",
+		"typeorm": "^0.3.20",
+		"typescript": "^5.7.2",
+		"zod": "^3.24.2"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.17.0",
+		"@types/bcrypt": "^5.0.2",
+		"@types/bcryptjs": "^2.4.6",
+		"@types/cors": "^2.8.17",
+		"@types/express": "^5.0.0",
+		"@types/node": "^22.10.2",
+		"@types/pino": "^7.0.5",
+		"@types/pino-pretty": "^5.0.0",
+		"@typescript-eslint/eslint-plugin": "^8.18.0",
+		"@typescript-eslint/parser": "^8.18.0",
+		"eslint": "^9.17.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"globals": "^15.13.0",
+		"nodemon": "^3.1.9",
+		"prettier": "^3.4.2",
+		"ts-node": "^10.9.2",
+		"tsconfig-paths": "^4.2.0",
+		"typescript-eslint": "^8.18.0"
+	}
 }

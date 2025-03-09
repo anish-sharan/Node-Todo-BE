@@ -3,9 +3,7 @@ import {
     PrimaryGeneratedColumn,
     CreateDateColumn,
     UpdateDateColumn,
-    Column,
-    BeforeInsert,
-    BeforeUpdate
+    Column
 } from 'typeorm';
 
 export abstract class BaseEntity {
@@ -26,14 +24,4 @@ export abstract class BaseEntity {
 
     @Column({ type: 'uuid', nullable: true })
     updatedBy?: string;
-
-    @BeforeInsert()
-    setCreationDetails(): void {
-        this.createdDate = new Date();
-    }
-
-    @BeforeUpdate()
-    setUpdateDetails(): void {
-        this.updatedDate = new Date();
-    }
 }

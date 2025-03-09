@@ -1,5 +1,7 @@
-import userRouter from "./user/user.routes";
+import userRouter from './user/user.routes';
+import taskRouter from './task/task.routes';
 
 export {
-    userRouter
+	userRouter,
+	taskRouter
 };

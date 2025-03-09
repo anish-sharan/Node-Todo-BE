@@ -1,9 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import env from './config/environment.config';
-import log from './utils/loggers';
+import log from './utils/logger';
 import { IRequest, IResponse } from './types/common';
-import { userRouter } from './api';
+import env from './config/environment.config';
+import { logApi } from './middlewares/logApi';
+import { taskRouter, userRouter } from './api';
 
 const app = express();
 
@@ -15,12 +16,15 @@ app.use(
 );
 app.use(express.json());
 
-// User
-app.use('/api/v1/user', userRouter);
+// Routes
+app.use('/api/v1/user', logApi(), userRouter);
+// Tasks
+app.use('/api/v1/task', logApi(), taskRouter);
+
 
 app.get('/', (_req: IRequest, res: IResponse) => {
     log.info('Welcome Dev');
-    res.status(200).send('Welcome all Devs');
+    res.status(200).send('BE is up!');
 });
 
 app.all('*', (_req: IRequest, res: IResponse) => {

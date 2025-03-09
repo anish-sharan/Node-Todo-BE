@@ -1,13 +1,27 @@
 import { IRequest, IResponse } from '../../types/common';
 import { errorResponse, successResponse } from '../../utils/apiResponses';
-import UserService from './user.service';
+import { createUserValidation, loginUserValidation } from './user.validations';
+import { loginUserService, signUpUserService } from './user.service';
 
-
-export const createUser = async (req: IRequest, res: IResponse) => {
+export const signUpUser = async (req: IRequest, res: IResponse) => {
     try {
-        await UserService.createUser(req.body)
+        const validatedRequest = createUserValidation.parse(req.body);
 
-        successResponse({ res });
+        const data = await signUpUserService(validatedRequest);
+
+        successResponse({ res, data });
+    } catch (error) {
+        errorResponse({ req, res, error });
+    }
+};
+
+export const loginUser = async (req: IRequest, res: IResponse) => {
+    try {
+        const validatedRequest = loginUserValidation.parse(req.body);
+
+        const data = await loginUserService(validatedRequest);
+
+        successResponse({ res, data });
     } catch (error) {
         errorResponse({ req, res, error });
     }

@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
     database: env.db.dbName,
     synchronize: true,
     logging: ['error', 'warn'],
-    entities: ['src/**/*.model.ts'],
+    entities: ['src/**/*.model.ts', 'src/**/**/*.model.ts'],
     ssl: { rejectUnauthorized: false },
-    migrations: ['src/migrations/*.ts']
+    migrations: ['src/database/migrations/*.ts'],
 });
