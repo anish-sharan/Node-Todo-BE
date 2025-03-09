@@ -1,5 +1,5 @@
 import express from 'express';
-import { createTask, getAllTask } from './task.controller';
+import { createTask, getAllTask, getTaskByUserId, } from './task.controller';
 
 const taskRouter = express.Router();
 
@@ -8,5 +8,7 @@ const taskRouter = express.Router();
 taskRouter.post('/', createTask);
 
 taskRouter.get('/', getAllTask);
+
+taskRouter.get('/user/:id', getTaskByUserId);
 
 export default taskRouter;
