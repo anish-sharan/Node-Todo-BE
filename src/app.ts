@@ -5,6 +5,7 @@ import { IRequest, IResponse } from './types/common';
 import env from './config/environment.config';
 import { logApi } from './middlewares/logApi';
 import { taskRouter, userRouter } from './api';
+import { setupSwagger } from './config/swagger';
 
 const app = express();
 
@@ -15,6 +16,9 @@ app.use(
     })
 );
 app.use(express.json());
+
+// Swagger implementations
+setupSwagger(app);
 
 // Routes
 app.use('/api/v1/user', logApi(), userRouter);
