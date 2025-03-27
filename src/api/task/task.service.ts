@@ -5,6 +5,7 @@ import Task from './task.model';
 import { CreateTaskType } from './task.validations';
 import { IRequest } from '../../types/common';
 import { taskForUser } from './task.dto';
+import EntityNotFoundError from '../../errors/EntityNotFound';
 
 export const taskRepository = AppDataSource.getRepository(Task);
 
@@ -40,7 +41,7 @@ export const getAllTaskService = async (req: IRequest) => {
 export const getTaskByUserIdService = async (id: string) => {
     log.info(`Fetching all the tasks for user`);
 
-    if (!id) throw new Error('Id not found');
+    if (!id) throw new EntityNotFoundError('Task', id);
 
     const task = await taskRepository.find({
         where: { user: { id } },

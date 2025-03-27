@@ -5,6 +5,9 @@ import { loginUserService, signUpUserService } from './user.service';
 
 export const signUpUser = async (req: IRequest, res: IResponse) => {
     try {
+
+        console.log("===>", req.body);
+
         const validatedRequest = createUserValidation.parse(req.body);
 
         const data = await signUpUserService(validatedRequest);
